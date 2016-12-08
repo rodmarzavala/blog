@@ -77,5 +77,6 @@ crear schema y usuario
 
 ## Homework
 [Help](http://ormcheatsheet.com/#association)
+
 Crear la relación de manyToOne de Category a Post 
 y la inversa de oneToMany de Post a Category.
