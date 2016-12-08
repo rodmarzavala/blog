@@ -1,5 +1,6 @@
-blog
-====
+# Symfony3 Blog
+
+## Commands
 
 A Symfony project created on December 8, 2016, 2:23 pm.
 
@@ -74,10 +75,9 @@ crear schema y usuario
     //agregar el commit 
     $ git commit -m'SEED'
 
-Homework
-=====
+## Homework
 
 Crear la relación de manyToOne de Category a Post 
 y la inversa de oneToMany de Post a Category.
 
-[Ejemplo](http://ormcheatsheet.com/#association
+[Link](http://ormcheatsheet.com/#association
