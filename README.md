@@ -80,4 +80,4 @@ crear schema y usuario
 Crear la relación de manyToOne de Category a Post 
 y la inversa de oneToMany de Post a Category.
 
-[Link](http://ormcheatsheet.com/#association
+[Link](http://ormcheatsheet.com/#association)
