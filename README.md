@@ -76,8 +76,6 @@ crear schema y usuario
     $ git commit -m'SEED'
 
 ## Homework
-
+[Help](http://ormcheatsheet.com/#association)
 Crear la relación de manyToOne de Category a Post 
 y la inversa de oneToMany de Post a Category.
-
-[Link](http://ormcheatsheet.com/#association)
