@@ -74,5 +74,10 @@ crear schema y usuario
     //agregar el commit 
     $ git commit -m'SEED'
 
-TAREA
-1. crear repo en bitbucket y subir proyecto.
+Homework
+=====
+
+Crear la relación de manyToOne de Category a Post 
+y la inversa de oneToMany de Post a Category.
+
+[Ejemplo](http://ormcheatsheet.com/#association
