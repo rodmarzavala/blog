@@ -56,6 +56,18 @@ class Post
      */
     private $enabled;
 
+    /**
+     * @ORM\ManyToOne(
+     *     targetEntity="AppBundle\Entity\Category",
+     *     inversedBy="posts"
+     * )
+     * @ORM\JoinColumn(
+     *     name="category_id",
+     *     referencedColumnName="id",
+     *     nullable=false
+     * )
+     */
+    private $category;
 
     /**
      * Get id
@@ -186,5 +198,28 @@ class Post
     {
         return $this->enabled;
     }
-}
 
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Post
+     */
+    public function setCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+}

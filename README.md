@@ -1,5 +1,13 @@
 # Symfony3 Blog
 
+## Tarea de la semana
+
+* Modificar la relación de manyToOne entre Category -< Post a manyToMany.
+* Generar entidades
+* Cargar a base de datos los cambios
+
+ [ER](ER/ER02.mwb) | [Ayuda](http://ormcheatsheet.com/#manytomany) | [Leaderboard](https://geek-leaderboard.herokuapp.com/channel/praga-web-studio/curso-de-symfony3)
+
 ## Commands
 
 A Symfony project created on December 8, 2016, 2:23 pm.

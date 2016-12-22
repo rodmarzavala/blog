@@ -35,6 +35,13 @@ class Category
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(
+     *     targetEntity="AppBundle\Entity\Post",
+     *     mappedBy="category"
+     * )
+     */
+    private $posts;
 
     /**
      * Get id
@@ -93,5 +100,45 @@ class Category
     {
         return $this->slug;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add post
+     *
+     * @param \AppBundle\Entity\Post $post
+     *
+     * @return Category
+     */
+    public function addPost(\AppBundle\Entity\Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \AppBundle\Entity\Post $post
+     */
+    public function removePost(\AppBundle\Entity\Post $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get post
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPost()
+    {
+        return $this->posts;
+    }
+}
