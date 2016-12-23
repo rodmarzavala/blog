@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Tag
  *
- * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
+ * @ORM\Table(name="tag")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TagRepository")
  */
-class Category
+class Tag
 {
     /**
      * @var int
@@ -24,24 +24,33 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=200)
+     * @ORM\Column(name="name", type="string", length=150, unique=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=200, unique=true)
+     * @ORM\Column(name="slug", type="string", length=150, unique=true)
      */
     private $slug;
 
     /**
-     * @ORM\OneToMany(
-     *     targetEntity="AppBundle\Entity\Post",
-     *     mappedBy="category"
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post", inversedBy="tags")
+     * @ORM\JoinTable(
+     *     name="post_tag",
+     *     joinColumns={
+     *         @ORM\JoinColumn(
+     *             name="tag_id",
+     *             referencedColumnName="id",
+     *             nullable=false
+     *         )
+     *     },
+     *     inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", nullable=false)}
      * )
      */
     private $posts;
+
 
     /**
      * Get id
@@ -58,7 +67,7 @@ class Category
      *
      * @param string $name
      *
-     * @return Category
+     * @return Tag
      */
     public function setName($name)
     {
@@ -82,7 +91,7 @@ class Category
      *
      * @param string $slug
      *
-     * @return Category
+     * @return Tag
      */
     public function setSlug($slug)
     {
@@ -113,7 +122,7 @@ class Category
      *
      * @param \AppBundle\Entity\Post $post
      *
-     * @return Category
+     * @return Tag
      */
     public function addPost(\AppBundle\Entity\Post $post)
     {
@@ -130,16 +139,6 @@ class Category
     public function removePost(\AppBundle\Entity\Post $post)
     {
         $this->posts->removeElement($post);
-    }
-
-    /**
-     * Get post
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPost()
-    {
-        return $this->posts;
     }
 
     /**
